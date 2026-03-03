@@ -972,4 +972,40 @@ audio {
     font-weight: bold;
     margin-top: 15px;
     align-self: flex-start;
+
+}
+/* --- ALT MENÜ (5 BUTONA GÖRE GÜNCELLENDİ) --- */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--dark-bg);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 4 YERİNE 5 YAPTIK - İŞTE BÜTÜN SIR BU! */
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    padding-bottom: env(safe-area-inset-bottom); /* iPhone çentik uyumluluğu */
+}
+
+.nav-btn {
+    background: transparent;
+    border: none;
+    color: #8892b0;
+    padding: 10px 2px; /* 5 butona sığması için yan boşlukları kıstık */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.70rem; /* Yazı boyutunu biraz küçülttük */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-btn i {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.nav-btn.active {
+    color: var(--accent-orange);
 }
