@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AeroSpeak - Kabin Memuru Akademisi</title>
-    
+
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0b132b">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <header class="app-header">
@@ -29,7 +31,7 @@
         <div id="words-module" class="tab-content active">
             <h2 class="section-title"><i class="fa-solid fa-language"></i> Havacılık Sözlüğü</h2>
             <p class="section-desc">Karta tıklayarak çevirisini gör, oklarla ilerle.</p>
-            
+
             <div class="controls-container">
                 <input type="text" id="search-input" placeholder="Kelime ara (Örn: Brace)..." class="search-box">
                 <select id="category-select" class="category-box">
@@ -59,7 +61,8 @@
                         <div class="example-box">
                             <p id="card-ex-en" class="ex-en">...</p>
                             <p id="card-ex-tr" class="ex-tr">...</p>
-                            <button id="listen-ex-btn" class="icon-btn-small ex-listen"><i class="fa-solid fa-volume-high"></i> Örneği Dinle</button>
+                            <button id="listen-ex-btn" class="icon-btn-small ex-listen"><i
+                                    class="fa-solid fa-volume-high"></i> Örneği Dinle</button>
                         </div>
                     </div>
                 </div>
@@ -78,7 +81,7 @@
 
             <div class="announcement-container">
                 <select id="announcement-type" class="category-box w-100 mb-1">
-                    </select>
+                </select>
 
                 <div class="announcement-board">
                     <h3 id="ann-title">Hoş Geldiniz</h3>
@@ -86,9 +89,12 @@
                 </div>
 
                 <div class="action-buttons">
-                    <button id="chime-btn" class="icon-btn-small" title="Ding-Dong Çal"><i class="fa-solid fa-bell"></i></button>
-                    <button id="listen-native-btn" class="action-btn native-btn"><i class="fa-solid fa-headphones"></i> Dinle</button>
-                    <button id="record-btn" class="action-btn record-btn"><i class="fa-solid fa-microphone"></i> <span id="record-text">Kaydet</span></button>
+                    <button id="chime-btn" class="icon-btn-small" title="Ding-Dong Çal"><i
+                            class="fa-solid fa-bell"></i></button>
+                    <button id="listen-native-btn" class="action-btn native-btn"><i class="fa-solid fa-headphones"></i>
+                        Dinle</button>
+                    <button id="record-btn" class="action-btn record-btn"><i class="fa-solid fa-microphone"></i> <span
+                            id="record-text">Kaydet</span></button>
                 </div>
 
                 <div id="playback-container" class="playback-area hidden">
@@ -100,16 +106,18 @@
 
         <div id="interview-module" class="tab-content">
             <h2 class="section-title"><i class="fa-solid fa-user-tie"></i> Mülakat Simülatörü</h2>
-            <p class="section-desc">Gerçek mülakat sorularına yapay zeka ile profesyonel cevaplar üretin ve kameraya bakarak pratik yapın.</p>
+            <p class="section-desc">Gerçek mülakat sorularına yapay zeka ile profesyonel cevaplar üretin ve kameraya
+                bakarak pratik yapın.</p>
 
             <div class="interview-container">
                 <select id="interview-q-select" class="category-box w-100 mb-1">
-                    </select>
+                </select>
 
                 <div class="question-board">
                     <h3 class="q-label">Soru:</h3>
                     <p id="int-q-text" class="int-q-text">...</p>
-                    <button id="listen-q-btn" class="icon-btn-small top-right"><i class="fa-solid fa-volume-high"></i></button>
+                    <button id="listen-q-btn" class="icon-btn-small top-right"><i
+                            class="fa-solid fa-volume-high"></i></button>
                 </div>
 
                 <div class="camera-simulator">
@@ -117,16 +125,22 @@
                         <i class="fa-solid fa-video-slash"></i>
                         <video id="int-live-video" class="live-video hidden" autoplay muted playsinline></video>
                         <video id="int-user-video" class="live-video hidden" controls playsinline></video>
-                        <div id="int-timer" class="recording-badge hidden"><i class="fa-solid fa-circle"></i> <span id="time-display">02:00</span></div>
+                        <div id="int-timer" class="recording-badge hidden"><i class="fa-solid fa-circle"></i> <span
+                                id="time-display">02:00</span></div>
                     </div>
-                    <button id="int-record-btn" class="action-btn record-btn w-100 mt-1"><i class="fa-solid fa-video"></i> <span id="int-record-text">Kamera ile Cevapla (2 Dk)</span></button>
+                    <button id="int-record-btn" class="action-btn record-btn w-100 mt-1"><i
+                            class="fa-solid fa-video"></i> <span id="int-record-text">Kamera ile Cevapla (2
+                            Dk)</span></button>
                 </div>
 
                 <div class="ai-actions mt-2">
-                    <button id="show-answer-btn" class="action-btn w-100 mb-1" style="background-color: var(--secondary-blue);"><i class="fa-solid fa-eye"></i> Örnek Cevapları Gör</button>
-                    
-                    <button id="ai-generate-btn" class="action-btn ai-btn w-100"><i class="fa-solid fa-wand-magic-sparkles"></i> Yapay Zeka ile Yeni Cevap Üret</button>
-                    
+                    <button id="show-answer-btn" class="action-btn w-100 mb-1"
+                        style="background-color: var(--secondary-blue);"><i class="fa-solid fa-eye"></i> Örnek Cevapları
+                        Gör</button>
+
+                    <button id="ai-generate-btn" class="action-btn ai-btn w-100"><i
+                            class="fa-solid fa-wand-magic-sparkles"></i> Yapay Zeka ile Yeni Cevap Üret</button>
+
                     <div id="ai-loading" class="ai-loading hidden">
                         <i class="fa-solid fa-spinner fa-spin"></i> Yapay Zeka (AI) benzersiz bir cevap yazıyor...
                     </div>
@@ -135,24 +149,29 @@
                 <div id="sample-answer-box" class="sample-answer-box hidden mt-1">
                     <div class="answer-header">
                         <h4 class="a-label">AI Mükemmel Cevap</h4>
-                        <button id="listen-a-btn" class="icon-btn-small"><i class="fa-solid fa-volume-high"></i></button>
+                        <button id="listen-a-btn" class="icon-btn-small"><i
+                                class="fa-solid fa-volume-high"></i></button>
                     </div>
-                    
+
                     <div class="answer-slider">
                         <p id="int-a-en" class="int-a-en">...</p>
                         <p id="int-a-tr" class="int-a-tr">...</p>
                     </div>
 
                     <div class="answer-nav">
-                        <button id="prev-answer-btn" class="icon-btn-small"><i class="fa-solid fa-chevron-left"></i></button>
-                        <span id="answer-counter" style="font-size: 0.9rem; font-weight: bold; color: var(--primary-blue);">Alternatif 1 / 1</span>
-                        <button id="next-answer-btn" class="icon-btn-small"><i class="fa-solid fa-chevron-right"></i></button>
+                        <button id="prev-answer-btn" class="icon-btn-small"><i
+                                class="fa-solid fa-chevron-left"></i></button>
+                        <span id="answer-counter"
+                            style="font-size: 0.9rem; font-weight: bold; color: var(--primary-blue);">Alternatif 1 /
+                            1</span>
+                        <button id="next-answer-btn" class="icon-btn-small"><i
+                                class="fa-solid fa-chevron-right"></i></button>
                     </div>
 
                     <div class="star-analysis">
                         <h5>S.T.A.R. Analizi</h5>
                         <ul id="star-list">
-                            </ul>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -163,8 +182,9 @@
             <p class="section-desc">Yapay zeka yolcularla diyalog kurarak İngilizce gramerinizi puanlar.</p>
 
             <div class="grammar-container">
-                
-                <button id="back-to-setup-btn" class="icon-btn mb-1 hidden" style="background-color: var(--primary-blue); margin-bottom: 1.5rem; width: 100%; justify-content: center;">
+
+                <button id="back-to-setup-btn" class="icon-btn mb-1 hidden"
+                    style="background-color: var(--primary-blue); margin-bottom: 1.5rem; width: 100%; justify-content: center;">
                     <i class="fa-solid fa-arrow-left"></i> Uçuşu Durdur ve Konu Seçimine Dön
                 </button>
 
@@ -195,10 +215,13 @@
                         <option value="Indirect Speech">Direct / Indirect Speech (Raporlama)</option>
                         <option value="Irregular Verbs">Irregular Verbs (Düzensiz Fiiller)</option>
                     </select>
-                    
+
                     <div style="display: flex; gap: 10px; margin-top: 15px;">
-                        <button id="learn-topic-btn" class="action-btn w-100" style="background-color: var(--secondary-blue);"><i class="fa-solid fa-chalkboard-user"></i> Önce Konuyu Öğren</button>
-                        <button id="start-academy-btn" class="action-btn w-100 ai-btn"><i class="fa-solid fa-plane-departure"></i> Uçuşa Başla (AI)</button>
+                        <button id="learn-topic-btn" class="action-btn w-100"
+                            style="background-color: var(--secondary-blue);"><i class="fa-solid fa-chalkboard-user"></i>
+                            Önce Konuyu Öğren</button>
+                        <button id="start-academy-btn" class="action-btn w-100 ai-btn"><i
+                                class="fa-solid fa-plane-departure"></i> Uçuşa Başla (AI)</button>
                     </div>
 
                     <div id="grammar-loading" class="ai-loading hidden mt-1">
@@ -208,23 +231,28 @@
                     <div id="theory-board" class="theory-board hidden">
                         <div class="theory-header">
                             <h3 id="theory-title">Konu Başlığı</h3>
-                            <button id="close-theory-btn" class="icon-btn-small" title="Kapat"><i class="fa-solid fa-xmark"></i></button>
+                            <button id="close-theory-btn" class="icon-btn-small" title="Kapat"><i
+                                    class="fa-solid fa-xmark"></i></button>
                         </div>
-                        
+
                         <div class="theory-video-container">
-                            <iframe id="theory-video" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe id="theory-video" src="" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
                         </div>
 
                         <p id="theory-desc" class="theory-desc">Konu açıklaması...</p>
-                        
+
                         <div class="theory-formula-box">
                             <strong>📐 Gramer Formülü:</strong>
                             <p id="theory-formula" class="theory-formula">...</p>
                         </div>
-                        
+
                         <div class="theory-examples">
-                            <p class="correct-example"><i class="fa-solid fa-check-circle"></i> <strong>Doğru Kullanım:</strong> <span id="theory-good">...</span></p>
-                            <p class="wrong-example"><i class="fa-solid fa-times-circle"></i> <strong>Sık Yapılan Hata:</strong> <span id="theory-bad">...</span></p>
+                            <p class="correct-example"><i class="fa-solid fa-check-circle"></i> <strong>Doğru
+                                    Kullanım:</strong> <span id="theory-good">...</span></p>
+                            <p class="wrong-example"><i class="fa-solid fa-times-circle"></i> <strong>Sık Yapılan
+                                    Hata:</strong> <span id="theory-bad">...</span></p>
                         </div>
                     </div>
                 </div>
@@ -236,7 +264,8 @@
                         <div class="target-grammar-badge">
                             <strong>Hedef Yapı:</strong> <span id="target-grammar-text">...</span>
                         </div>
-                        <button id="enter-cabin-btn" class="action-btn w-100 mt-1"><i class="fa-solid fa-door-open"></i> Kabine Geç ve Yolcuya Cevap Ver</button>
+                        <button id="enter-cabin-btn" class="action-btn w-100 mt-1"><i class="fa-solid fa-door-open"></i>
+                            Kabine Geç ve Yolcuya Cevap Ver</button>
                     </div>
                 </div>
 
@@ -245,7 +274,8 @@
                         <div class="chat-bubble passenger-bubble">
                             <div class="bubble-header">
                                 <span><i class="fa-solid fa-user"></i> 12B Yolcusu</span>
-                                <button id="listen-passenger-btn" class="icon-btn-small" style="color:white;"><i class="fa-solid fa-volume-high"></i></button>
+                                <button id="listen-passenger-btn" class="icon-btn-small" style="color:white;"><i
+                                        class="fa-solid fa-volume-high"></i></button>
                             </div>
                             <p id="passenger-msg">...</p>
                         </div>
@@ -259,28 +289,33 @@
                     </div>
 
                     <div id="grammar-input-area" class="input-area">
-                        <textarea id="crew-input" placeholder="İngilizce cevabını yaz veya mikrofonla söyle..." rows="3"></textarea>
+                        <textarea id="crew-input" placeholder="İngilizce cevabını yaz veya mikrofonla söyle..."
+                            rows="3"></textarea>
                         <div class="input-actions">
-                            <button id="mic-btn" class="icon-btn-small mic-btn" title="Sesli Yanıt"><i class="fa-solid fa-microphone"></i></button>
-                            <button id="send-crew-btn" class="action-btn send-btn"><i class="fa-solid fa-paper-plane"></i> Gönder</button>
+                            <button id="mic-btn" class="icon-btn-small mic-btn" title="Sesli Yanıt"><i
+                                    class="fa-solid fa-microphone"></i></button>
+                            <button id="send-crew-btn" class="action-btn send-btn"><i
+                                    class="fa-solid fa-paper-plane"></i> Gönder</button>
                         </div>
                     </div>
 
                     <div id="evaluation-area" class="evaluation-area hidden mt-2">
-                        <h3 id="eval-title"><i class="fa-solid fa-spinner fa-spin"></i> Eğitim Amiri Değerlendiriyor...</h3>
-                        
+                        <h3 id="eval-title"><i class="fa-solid fa-spinner fa-spin"></i> Eğitim Amiri Değerlendiriyor...
+                        </h3>
+
                         <div id="eval-content" class="eval-content hidden">
                             <div class="score-circle">
                                 <span id="eval-score">0 / 10</span>
                             </div>
                             <p id="eval-feedback" class="eval-feedback">...</p>
-                            
+
                             <div class="better-version-box">
                                 <strong>Kusursuz Versiyon:</strong>
                                 <p id="eval-better-version">...</p>
                             </div>
-                            
-                            <button id="next-scenario-btn" class="action-btn w-100 mt-1"><i class="fa-solid fa-forward"></i> Sıradaki Yolcuya Geç</button>
+
+                            <button id="next-scenario-btn" class="action-btn w-100 mt-1"><i
+                                    class="fa-solid fa-forward"></i> Sıradaki Yolcuya Geç</button>
                         </div>
                     </div>
                 </div>
@@ -299,9 +334,9 @@
             </div>
 
             <div id="podcast-gallery" class="podcast-gallery hidden">
-                </div>
+            </div>
 
-            <div id="podcast-player-container" class="theory-board hidden">
+           <div id="podcast-player-container" class="theory-board hidden">
                 <div class="theory-header">
                     <h3 id="podcast-player-title">Podcast Başlığı</h3>
                     <button id="close-podcast-btn" class="icon-btn-small" title="Kapat"><i class="fa-solid fa-xmark"></i></button>
@@ -310,6 +345,10 @@
                 <div class="theory-video-container">
                     <iframe id="podcast-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
+                
+                <a id="youtube-app-btn" href="#" target="_blank" class="action-btn w-100 mb-1" style="background-color: #ff0000; text-decoration: none; font-size: 0.95rem;">
+                    <i class="fa-brands fa-youtube" style="font-size: 1.2rem;"></i> Arka Planda Dinlemek İçin YouTube'da Aç
+                </a>
                 
                 <p id="podcast-player-desc" class="theory-desc">Açıklama...</p>
             </div>
@@ -329,12 +368,13 @@
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js')
-                .then(reg => console.log('Service Worker Başarılı!'))
-                .catch(err => console.log('Service Worker Hatası:', err));
+                    .then(reg => console.log('Service Worker Başarılı!'))
+                    .catch(err => console.log('Service Worker Hatası:', err));
             });
         }
     </script>
 
     <script src="app.js"></script>
 </body>
+
 </html>
