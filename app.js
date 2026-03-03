@@ -1130,6 +1130,7 @@ const podcastPlayerContainer = document.getElementById('podcast-player-container
 const podcastTitle = document.getElementById('podcast-player-title');
 const podcastIframe = document.getElementById('podcast-iframe');
 const podcastDesc = document.getElementById('podcast-player-desc');
+const youtubeAppBtn = document.getElementById('youtube-app-btn');
 const closePodcastBtn = document.getElementById('close-podcast-btn');
 
 // Seviye Butonlarına Tıklama (Canlı API İsteği)
@@ -1201,6 +1202,11 @@ function openPodcastPlayer(title, desc, videoId) {
     podcastDesc.textContent = desc;
     // Gelen Video ID'sini otomatik olarak Embed Linkine çevirir!
     podcastIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    
+    // YENİ EKLENEN KISIM: YouTube butonuna asıl video linkini veriyoruz
+    if(youtubeAppBtn) {
+        youtubeAppBtn.href = `https://www.youtube.com/watch?v=${videoId}`;
+    }
     
     podcastPlayerContainer.scrollIntoView({ behavior: 'smooth' });
 }
