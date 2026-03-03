@@ -893,3 +893,83 @@ audio {
     width: 100%;
     height: 100%;
 }
+/* --- Podcast & Dinleme Modülü Stilleri --- */
+.level-selectors {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.level-btn {
+    background-color: var(--secondary-blue);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 120px;
+}
+
+.level-btn:hover {
+    background-color: var(--primary-blue);
+    transform: translateY(-2px);
+}
+
+.level-btn.active {
+    background-color: var(--accent-orange);
+    box-shadow: 0 4px 10px rgba(239, 131, 84, 0.4);
+}
+
+.podcast-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.podcast-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+.podcast-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-blue);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.podcast-card h4 {
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.podcast-card p {
+    color: #666;
+    font-size: 0.9rem;
+    flex-grow: 1;
+}
+
+.podcast-duration {
+    display: inline-block;
+    background-color: #f0f4f8;
+    color: var(--primary-blue);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-top: 15px;
+    align-self: flex-start;
+}
