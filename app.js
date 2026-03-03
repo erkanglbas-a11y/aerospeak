@@ -1112,3 +1112,104 @@ if(backToSetupBtn) {
         grammarSetup.classList.remove('hidden');
     });
 }
+// ==========================================
+// 6. PODCAST & DİNLEME AKADEMİSİ (CANLI YOUTUBE API)
+// ==========================================
+
+// Seviyelere Özel Canlı Arama Terimleri (Keywords)
+const searchQueries = {
+    "A2-B1": "basic english conversation flight attendant cabin crew",
+    "B1-B2": "aviation english cabin crew training situations",
+    "B2-C1": "aviation english ATC communications emergency real"
+};
+
+// DOM Elementleri
+const levelBtns = document.querySelectorAll('.level-btn');
+const podcastGallery = document.getElementById('podcast-gallery');
+const podcastPlayerContainer = document.getElementById('podcast-player-container');
+const podcastTitle = document.getElementById('podcast-player-title');
+const podcastIframe = document.getElementById('podcast-iframe');
+const podcastDesc = document.getElementById('podcast-player-desc');
+const closePodcastBtn = document.getElementById('close-podcast-btn');
+
+// Seviye Butonlarına Tıklama (Canlı API İsteği)
+levelBtns.forEach(btn => {
+    btn.addEventListener('click', async () => {
+        levelBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        podcastPlayerContainer.classList.add('hidden');
+        podcastIframe.src = "";
+
+        const selectedLevel = btn.getAttribute('data-level');
+        const searchQuery = searchQueries[selectedLevel];
+
+        // Yükleniyor animasyonu göster
+        podcastGallery.innerHTML = '<div style="text-align:center; width:100%; color:var(--primary-blue); padding: 40px;"><i class="fa-solid fa-spinner fa-spin fa-2x"></i><br><br>Canlı Sunucudan Videolar Çekiliyor...</div>';
+        podcastGallery.classList.remove('hidden');
+
+        try {
+            // Kendi yazdığımız güvenli Vercel API'sine (youtube.js) istek atıyoruz
+            const response = await fetch("/api/youtube", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ query: searchQuery })
+            });
+
+            const data = await response.json();
+
+            if (data.error || !data.items) {
+                throw new Error(data.error?.message || "YouTube API Kotası Doldu veya Hata Oluştu.");
+            }
+
+            // Galeriyi temizle ve API'den gelen canlı sonuçları ekrana bas
+            podcastGallery.innerHTML = '';
+            
+            data.items.forEach(item => {
+                const videoId = item.id.videoId;
+                const snippet = item.snippet;
+                
+                const card = document.createElement('div');
+                card.className = 'podcast-card';
+                card.innerHTML = `
+                    <img src="${snippet.thumbnails.medium.url}" alt="Thumbnail" style="width:100%; border-radius:8px; margin-bottom:10px;">
+                    <h4>${snippet.title}</h4>
+                    <p style="font-size: 0.8rem;">Kanal: ${snippet.channelTitle}</p>
+                `;
+                
+                // Karta tıklanınca o videoyu embed formatında tahtada aç
+                card.addEventListener('click', () => {
+                    openPodcastPlayer(snippet.title, snippet.description, videoId);
+                });
+
+                podcastGallery.appendChild(card);
+            });
+
+        } catch (error) {
+            console.error(error);
+            podcastGallery.innerHTML = `<div style="color:var(--danger-red); text-align:center; width:100%;">🚨 Hata: ${error.message}</div>`;
+        }
+    });
+});
+
+// Videoyu Açma Fonksiyonu
+function openPodcastPlayer(title, desc, videoId) {
+    podcastGallery.classList.add('hidden');
+    podcastPlayerContainer.classList.remove('hidden');
+    
+    podcastTitle.textContent = title;
+    podcastDesc.textContent = desc;
+    // Gelen Video ID'sini otomatik olarak Embed Linkine çevirir!
+    podcastIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    
+    podcastPlayerContainer.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Videoyu Kapatma Fonksiyonu
+if(closePodcastBtn) {
+    closePodcastBtn.addEventListener('click', () => {
+        podcastPlayerContainer.classList.add('hidden');
+        podcastIframe.src = ""; 
+        podcastGallery.classList.remove('hidden');
+    });
+}
