@@ -2,92 +2,210 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AeroSpeak - Havacılık İngilizcesi Simülatörü</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AeroSpeak - Kabin Memuru Akademisi</title>
+    
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0b132b">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">
-            <i class="fa-solid fa-plane-departure"></i> AeroSpeak
+    <header class="app-header">
+        <div class="header-content">
+            <h1><i class="fa-solid fa-plane-departure"></i> AeroSpeak</h1>
+            <div class="user-status">
+                <span id="user-rank" class="rank-badge">Yer Hizmetleri (0 Puan)</span>
+            </div>
         </div>
-        <ul class="nav-links">
-            <li><button class="nav-btn active" data-target="dashboard"><i class="fa-solid fa-house"></i> Ana Ekran</button></li>
-            <li><button class="nav-btn" data-target="grammar"><i class="fa-solid fa-book"></i> Uçuş Grameri</button></li>
-            <li><button class="nav-btn" data-target="flashcards"><i class="fa-solid fa-clone"></i> Kelime Kartları</button></li>
-            <li><button class="nav-btn" data-target="announcements"><i class="fa-solid fa-microphone"></i> Anons Simülatörü</button></li>
-            <li><button class="nav-btn" data-target="interview"><i class="fa-solid fa-user-tie"></i> Mülakat</button></li>
-        </ul>
-    </nav>
+    </header>
 
-    <main class="content-area">
-        
-        <section id="dashboard" class="tab-content active">
-            <h1>AeroSpeak'e Hoş Geldin! ✈️</h1>
-            <p>Kabin memurluğu mülakatlarına ve havacılık İngilizcesine hazırlık serüvenin başlıyor. Yukarıdaki menüden çalışmak istediğin modülü seçebilirsin.</p>
-        </section>
+    <main class="main-content">
 
-<section id="grammar" class="tab-content">
-            <div class="grammar-header">
-                <h2>Uçuş Grameri Akademisi 🎓</h2>
-                <div class="rank-badge" title="Puan kazandıkça rütben artar!">
-                    <i class="fa-solid fa-medal"></i> Rütbe: <span id="user-rank">Yer Hizmetleri (0 Puan)</span>
+        <div id="words-module" class="tab-content active">
+            <h2 class="section-title"><i class="fa-solid fa-language"></i> Havacılık Sözlüğü</h2>
+            <p class="section-desc">Karta tıklayarak çevirisini gör, oklarla ilerle.</p>
+            
+            <div class="controls-container">
+                <input type="text" id="search-input" placeholder="Kelime ara (Örn: Brace)..." class="search-box">
+                <select id="category-select" class="category-box">
+                    <option value="all">Tüm Kategoriler</option>
+                    <option value="Kabin İçi">Kabin İçi</option>
+                    <option value="Güvenlik">Güvenlik</option>
+                    <option value="Acil Durum">Acil Durum</option>
+                    <option value="Uçuş Aşamaları">Uçuş Aşamaları</option>
+                    <option value="Havalimanı">Havalimanı</option>
+                    <option value="Uçuş Ekibi">Uçuş Ekibi</option>
+                    <option value="Hizmet">Hizmet</option>
+                    <option value="Uçuş Operasyonları">Uçuş Operasyonları</option>
+                    <option value="Kriz Yönetimi">Kriz Yönetimi</option>
+                    <option value="Tıbbi">Tıbbi</option>
+                </select>
+            </div>
+
+            <div class="flashcard-container">
+                <div class="flashcard" id="flashcard">
+                    <div class="card-face card-front">
+                        <h3 id="card-word">Yükleniyor...</h3>
+                        <p class="hint">Çeviri ve örnek için dokun</p>
+                        <button id="listen-btn" class="icon-btn-small"><i class="fa-solid fa-volume-high"></i></button>
+                    </div>
+                    <div class="card-face card-back">
+                        <h3 id="card-meaning">...</h3>
+                        <div class="example-box">
+                            <p id="card-ex-en" class="ex-en">...</p>
+                            <p id="card-ex-tr" class="ex-tr">...</p>
+                            <button id="listen-ex-btn" class="icon-btn-small ex-listen"><i class="fa-solid fa-volume-high"></i> Örneği Dinle</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <p>Önce uçuş brifingini al, ardından kabine geçerek yolcularla İngilizce roleplay yap. İstersen yazarak, istersen mikrofonla konuşarak cevap ver!</p>
-            
+
+            <div class="nav-controls">
+                <button id="prev-btn" class="icon-btn"><i class="fa-solid fa-arrow-left"></i> Önceki</button>
+                <span id="word-count" class="counter">0 / 0</span>
+                <button id="next-btn" class="icon-btn">Sonraki <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div id="announce-module" class="tab-content">
+            <h2 class="section-title"><i class="fa-solid fa-bullhorn"></i> Anons Pratiği</h2>
+            <p class="section-desc">Orijinal anonsu dinle, vurgulara dikkat et ve kendi sesini kaydet.</p>
+
+            <div class="announcement-container">
+                <select id="announcement-type" class="category-box w-100 mb-1">
+                    </select>
+
+                <div class="announcement-board">
+                    <h3 id="ann-title">Hoş Geldiniz</h3>
+                    <p id="ann-text" class="ann-text">...</p>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="chime-btn" class="icon-btn-small" title="Ding-Dong Çal"><i class="fa-solid fa-bell"></i></button>
+                    <button id="listen-native-btn" class="action-btn native-btn"><i class="fa-solid fa-headphones"></i> Dinle</button>
+                    <button id="record-btn" class="action-btn record-btn"><i class="fa-solid fa-microphone"></i> <span id="record-text">Kaydet</span></button>
+                </div>
+
+                <div id="playback-container" class="playback-area hidden">
+                    <h4>Senin Kaydın:</h4>
+                    <audio id="user-audio" controls></audio>
+                </div>
+            </div>
+        </div>
+
+        <div id="interview-module" class="tab-content">
+            <h2 class="section-title"><i class="fa-solid fa-user-tie"></i> Mülakat Simülatörü</h2>
+            <p class="section-desc">Gerçek mülakat sorularına yapay zeka ile profesyonel cevaplar üretin ve kameraya bakarak pratik yapın.</p>
+
+            <div class="interview-container">
+                <select id="interview-q-select" class="category-box w-100 mb-1">
+                    </select>
+
+                <div class="question-board">
+                    <h3 class="q-label">Soru:</h3>
+                    <p id="int-q-text" class="int-q-text">...</p>
+                    <button id="listen-q-btn" class="icon-btn-small top-right"><i class="fa-solid fa-volume-high"></i></button>
+                </div>
+
+                <div class="camera-simulator">
+                    <div class="video-placeholder">
+                        <i class="fa-solid fa-video-slash"></i>
+                        <video id="int-live-video" class="live-video hidden" autoplay muted playsinline></video>
+                        <video id="int-user-video" class="live-video hidden" controls playsinline></video>
+                        <div id="int-timer" class="recording-badge hidden"><i class="fa-solid fa-circle"></i> <span id="time-display">02:00</span></div>
+                    </div>
+                    <button id="int-record-btn" class="action-btn record-btn w-100 mt-1"><i class="fa-solid fa-video"></i> <span id="int-record-text">Kamera ile Cevapla (2 Dk)</span></button>
+                </div>
+
+                <div class="ai-actions mt-2">
+                    <button id="show-answer-btn" class="action-btn w-100 mb-1" style="background-color: var(--secondary-blue);"><i class="fa-solid fa-eye"></i> Örnek Cevapları Gör</button>
+                    
+                    <button id="ai-generate-btn" class="action-btn ai-btn w-100"><i class="fa-solid fa-wand-magic-sparkles"></i> Yapay Zeka ile Yeni Cevap Üret</button>
+                    
+                    <div id="ai-loading" class="ai-loading hidden">
+                        <i class="fa-solid fa-spinner fa-spin"></i> Yapay Zeka (AI) benzersiz bir cevap yazıyor...
+                    </div>
+                </div>
+
+                <div id="sample-answer-box" class="sample-answer-box hidden mt-1">
+                    <div class="answer-header">
+                        <h4 class="a-label">AI Mükemmel Cevap</h4>
+                        <button id="listen-a-btn" class="icon-btn-small"><i class="fa-solid fa-volume-high"></i></button>
+                    </div>
+                    
+                    <div class="answer-slider">
+                        <p id="int-a-en" class="int-a-en">...</p>
+                        <p id="int-a-tr" class="int-a-tr">...</p>
+                    </div>
+
+                    <div class="answer-nav">
+                        <button id="prev-answer-btn" class="icon-btn-small"><i class="fa-solid fa-chevron-left"></i></button>
+                        <span id="answer-counter" style="font-size: 0.9rem; font-weight: bold; color: var(--primary-blue);">Alternatif 1 / 1</span>
+                        <button id="next-answer-btn" class="icon-btn-small"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+
+                    <div class="star-analysis">
+                        <h5>S.T.A.R. Analizi</h5>
+                        <ul id="star-list">
+                            </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="grammar-module" class="tab-content">
+            <h2 class="section-title"><i class="fa-solid fa-book-open"></i> Uçuş Grameri Akademisi</h2>
+            <p class="section-desc">Yapay zeka yolcularla diyalog kurarak İngilizce gramerinizi puanlar.</p>
+
             <div class="grammar-container">
+                
                 <button id="back-to-setup-btn" class="icon-btn mb-1 hidden" style="background-color: var(--primary-blue); margin-bottom: 1.5rem; width: 100%; justify-content: center;">
                     <i class="fa-solid fa-arrow-left"></i> Uçuşu Durdur ve Konu Seçimine Dön
                 </button>
+
                 <div class="grammar-selector" id="grammar-setup">
-                    <label for="grammar-topic-select">Çalışılacak Konuyu Seçin:</label>
-                   <select id="grammar-topic-select">
+                    <label>Çalışılacak Konu:</label>
+                    <select id="grammar-topic-select">
                         <option value="Verb To Be">Verb "To Be" (Am/Is/Are - Durum Bildirme)</option>
-                        <option value="Simple Present">Simple Present (Geniş Zaman - Rutinler/Tarifeler)</option>
-                        <option value="Present Continuous">Present Continuous (Şimdiki Zaman - Anlık Olaylar)</option>
-                        <option value="Present Simple vs Present Continuous">Present Simple vs Present Continuous (Geniş Zaman) vs (Geçmişte Süregelen Olaylar)</option>
-                        <option value="Past Simple">Past Simple (Geçmiş Zaman - Olay Raporlama)</option>
-                        <option value="Past Continuous">Past Continuous (Geçmişte Süregelen Olaylar)</option>
-                        <option value="The difference between Past Simple and Past Continuous">The difference between Past Simple and Past Continuous</option>
-                        <option value="Future Tense">Future Tense (Will/Going to - Anonslar/Planlar)</option>
-                        <option value="Articles">Articles (A/An/The - Belirli ve Belirsiz Nesneler)</option>
-                        <option value="There is Are">There is / There are (Kabin İçi Mevcudiyet)</option>
-                        <option value="Countables Uncountables">Countables & Uncountables (İkramlar ve Eşyalar)</option>
-                        <option value="Frequency Adverbs">Adverbs of Frequency (Sıklık Zarfları / Rutinler)</option>
+                        <option value="Simple Present">Simple Present (Geniş Zaman - Rutinler)</option>
+                        <option value="Present Continuous">Present Continuous (Şimdiki Zaman)</option>
+                        <option value="Present vs Continuous">Simple Present vs Present Continuous</option>
+                        <option value="Past Simple">Past Simple (Geçmiş Zaman - Raporlama)</option>
+                        <option value="Past Continuous">Past Continuous (Süregelen Olaylar)</option>
+                        <option value="Future Tense">Future Tense (Will/Going to - Planlar)</option>
+                        <option value="Articles">Articles (A/An/The - Nesneler)</option>
+                        <option value="There is Are">There is / There are (Mevcudiyet)</option>
+                        <option value="Countables Uncountables">Countables & Uncountables</option>
+                        <option value="Frequency Adverbs">Adverbs of Frequency (Sıklık Zarfları)</option>
                         <option value="Prepositions Place">In/On/At (Place - Yer Edatları)</option>
                         <option value="Prepositions Time">In/On/At (Time - Zaman Edatları)</option>
                         <option value="For To">For / To (Amaç ve Yönelim)</option>
                         <option value="Phrasal Verbs">Phrasal Verbs (Havacılık Eylemleri)</option>
-                        <option value="Comparisons">Comparisons (Karşılaştırmalar ve Üstünlük)</option>
-                        <option value="Modals">Modals (Zorunluluk ve Tavsiye)</option>
-                        <option value="Conditionals">Conditionals (If Clauses - Acil Durum Şartları)</option>
-                        <option value="Present Perfect">Present Perfect Tense (Etkisi Süren Olaylar)</option>
-                        <option value="Perfect Continuous">Present Perfect Continuous (Süregelen Krizler)</option>
-                        <option value="Passive Voice">Passive Voice (Edilgen Yapı / Havacılık Yasakları)</option>
+                        <option value="Comparisons">Comparisons (Karşılaştırmalar)</option>
+                        <option value="Conditionals">Conditionals (If Clauses - Acil Durumlar)</option>
+                        <option value="Present Perfect">Present Perfect Tense</option>
+                        <option value="Perfect Continuous">Present Perfect Continuous</option>
+                        <option value="Passive Voice">Passive Voice (Edilgen Yapı / Yasaklar)</option>
                         <option value="Yet Still Already">Yet / Still / Already (Süreç Takibi)</option>
-                        <option value="Indirect Speech">Direct / Indirect Speech (Olay Raporlama)</option>
+                        <option value="Indirect Speech">Direct / Indirect Speech (Raporlama)</option>
                         <option value="Irregular Verbs">Irregular Verbs (Düzensiz Fiiller)</option>
                     </select>
                     
-                    <div class="setup-buttons" style="display: flex; gap: 10px; flex-wrap: wrap;">
-                        <button id="learn-topic-btn" class="sim-btn native-btn mt-1">
-                            <i class="fa-solid fa-book-open-reader"></i> Önce Konuyu Öğren
-                        </button>
-                        <button id="start-academy-btn" class="ai-btn mt-1" style="flex: 1;">
-                            <i class="fa-solid fa-plane-departure"></i> Uçuşa Başla (Pratik)
-                        </button>
+                    <div style="display: flex; gap: 10px; margin-top: 15px;">
+                        <button id="learn-topic-btn" class="action-btn w-100" style="background-color: var(--secondary-blue);"><i class="fa-solid fa-chalkboard-user"></i> Önce Konuyu Öğren</button>
+                        <button id="start-academy-btn" class="action-btn w-100 ai-btn"><i class="fa-solid fa-plane-departure"></i> Uçuşa Başla (AI)</button>
                     </div>
-                    
-                    <p id="grammar-loading" class="ai-loading-text hidden"><i class="fa-solid fa-spinner fa-spin"></i> AI Uçuş brifingini hazırlıyor...</p>
 
-                   <div id="theory-board" class="theory-board hidden">
+                    <div id="grammar-loading" class="ai-loading hidden mt-1">
+                        <i class="fa-solid fa-spinner fa-spin"></i> Kule ile bağlantı kuruluyor...
+                    </div>
+
+                    <div id="theory-board" class="theory-board hidden">
                         <div class="theory-header">
                             <h3 id="theory-title">Konu Başlığı</h3>
                             <button id="close-theory-btn" class="icon-btn-small" title="Kapat"><i class="fa-solid fa-xmark"></i></button>
@@ -101,7 +219,7 @@
                         
                         <div class="theory-formula-box">
                             <strong>📐 Gramer Formülü:</strong>
-                            <p id="theory-formula" class="theory-formula">Subject + Verb...</p>
+                            <p id="theory-formula" class="theory-formula">...</p>
                         </div>
                         
                         <div class="theory-examples">
@@ -111,221 +229,102 @@
                     </div>
                 </div>
 
-                <div id="briefing-area" class="hidden">
+                <div id="briefing-area" class="briefing-area hidden">
                     <div class="briefing-card">
-                        <h3>📋 Uçuş Öncesi Brifing</h3>
-                        <p id="briefing-text">Brifing yükleniyor...</p>
-                        <p class="expected-grammar"><strong>Hedef Gramer:</strong> <span id="target-grammar-text"></span></p>
-                        <button id="enter-cabin-btn" class="sim-btn native-btn mt-2"><i class="fa-solid fa-door-open"></i> Kabine Geç (Görevi Başlat)</button>
+                        <h3><i class="fa-solid fa-clipboard-list"></i> Uçuş Brifingi</h3>
+                        <p id="briefing-text">...</p>
+                        <div class="target-grammar-badge">
+                            <strong>Hedef Yapı:</strong> <span id="target-grammar-text">...</span>
+                        </div>
+                        <button id="enter-cabin-btn" class="action-btn w-100 mt-1"><i class="fa-solid fa-door-open"></i> Kabine Geç ve Yolcuya Cevap Ver</button>
                     </div>
                 </div>
 
-                <div id="roleplay-area" class="hidden">
-                    <div class="chat-box">
-                        <div class="message passenger">
-                            <i class="fa-solid fa-user"></i>
-                            <div class="msg-content">
-                                <p id="passenger-msg">Yolcu konuşuyor...</p>
-                                <button id="listen-passenger-btn" class="icon-btn-small mt-1" title="Yolcuyu Dinle"><i class="fa-solid fa-volume-low"></i></button>
+                <div id="roleplay-area" class="roleplay-area hidden">
+                    <div class="chat-container">
+                        <div class="chat-bubble passenger-bubble">
+                            <div class="bubble-header">
+                                <span><i class="fa-solid fa-user"></i> 12B Yolcusu</span>
+                                <button id="listen-passenger-btn" class="icon-btn-small" style="color:white;"><i class="fa-solid fa-volume-high"></i></button>
                             </div>
+                            <p id="passenger-msg">...</p>
                         </div>
+
+                        <div id="crew-msg-container" class="chat-bubble crew-bubble hidden">
+                            <div class="bubble-header">
+                                <span><i class="fa-solid fa-user-tie"></i> Sen</span>
+                            </div>
+                            <p id="crew-msg">...</p>
+                        </div>
+                    </div>
+
+                    <div id="grammar-input-area" class="input-area">
+                        <textarea id="crew-input" placeholder="İngilizce cevabını yaz veya mikrofonla söyle..." rows="3"></textarea>
+                        <div class="input-actions">
+                            <button id="mic-btn" class="icon-btn-small mic-btn" title="Sesli Yanıt"><i class="fa-solid fa-microphone"></i></button>
+                            <button id="send-crew-btn" class="action-btn send-btn"><i class="fa-solid fa-paper-plane"></i> Gönder</button>
+                        </div>
+                    </div>
+
+                    <div id="evaluation-area" class="evaluation-area hidden mt-2">
+                        <h3 id="eval-title"><i class="fa-solid fa-spinner fa-spin"></i> Eğitim Amiri Değerlendiriyor...</h3>
                         
-                        <div class="message crew hidden" id="crew-msg-container">
-                            <div class="msg-content" id="crew-msg"></div>
-                            <i class="fa-solid fa-user-tie"></i>
-                        </div>
-                    </div>
-
-                    <div class="input-area" id="grammar-input-area">
-                        <button id="mic-btn" class="icon-btn mic-btn" title="Sesli Yanıtla (İngilizce Konuş)"><i class="fa-solid fa-microphone"></i></button>
-                        <input type="text" id="crew-input" placeholder="İngilizce cevabını yaz veya mikrofonla söyle...">
-                        <button id="send-crew-btn" class="icon-btn send-btn" title="Cevabı Gönder"><i class="fa-solid fa-paper-plane"></i></button>
-                    </div>
-
-                    <div id="evaluation-area" class="hidden mt-2">
-                        <div class="eval-card">
-                            <h4 id="eval-title"><i class="fa-solid fa-spinner fa-spin"></i> Eğitmen değerlendiriyor...</h4>
-                            <div id="eval-content" class="hidden">
-                                <h2 id="eval-score" class="score-text">8/10</h2>
-                                <p id="eval-feedback" class="feedback-text"></p>
-                                <div class="better-version-box">
-                                    <strong>🌟 Kusursuz Versiyon:</strong>
-                                    <p id="eval-better-version" class="en-example"></p>
-                                </div>
-                                <button id="next-scenario-btn" class="sim-btn native-btn mt-2">Sonraki Uçuş <i class="fa-solid fa-arrow-right"></i></button>
+                        <div id="eval-content" class="eval-content hidden">
+                            <div class="score-circle">
+                                <span id="eval-score">0 / 10</span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="flashcards" class="tab-content">
-            <h2>İnteraktif Kelime Kartları</h2>
-            <p>Havacılık terminolojisini dinleyerek ve okuyarak pratik yap. Kartın arkasını görmek için üzerine tıkla.</p>
-            
-            <div class="filter-container">
-                <input type="text" id="search-input" placeholder="Kelime veya anlam ara (Örn: Brace)...">
-                <select id="category-select">
-                    <option value="all">Tüm Kategoriler</option>
-                    <option value="Kabin İçi">Kabin İçi</option>
-                    <option value="Güvenlik">Güvenlik</option>
-                    <option value="Acil Durum">Acil Durum</option>
-                    <option value="Uçuş Aşamaları">Uçuş Aşamaları</option>
-                    <option value="Hizmet">Hizmet</option>
-                </select>
-            </div>
-
-            <div class="flashcard-container">
-                <div class="flashcard" id="flashcard">
-                    <div class="flashcard-front">
-                        <span class="word-count" id="word-count">Yükleniyor...</span>
-                        <h3 id="card-word">Kelime Yükleniyor...</h3>
-                        <button class="listen-btn" id="listen-btn" title="Telaffuzu Dinle">
-                            <i class="fa-solid fa-volume-high"></i>
-                        </button>
-                        <span class="hint">Çevirmek için tıkla <i class="fa-solid fa-rotate"></i></span>
-                    </div>
-
-                    <div class="flashcard-back">
-                        <h3 id="card-meaning">Anlamı Yükleniyor...</h3>
-                        <div class="example-box">
-                            <div class="example-header">
-                                <p class="en-example" id="card-ex-en">"Example sentence..."</p>
-                                <button class="listen-ex-btn" id="listen-ex-btn" title="Cümleyi Dinle">
-                                    <i class="fa-solid fa-volume-low"></i>
-                                </button>
-                            </div>
-                            <p class="tr-example" id="card-ex-tr">"Örnek cümle..."</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flashcard-controls">
-                <button class="control-btn" id="prev-btn"><i class="fa-solid fa-arrow-left"></i> Önceki</button>
-                <button class="control-btn" id="next-btn">Sonraki <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-        </section>
-
-        <section id="announcements" class="tab-content">
-            <h2>Kabin Anons Simülatörü 📢</h2>
-            <p>Gerçek uçuş anonslarını dinle, vurgulara dikkat et ve kendi anonsunu kaydet.</p>
-
-            <div class="simulator-container">
-                <div class="announcement-selector">
-                    <label for="announcement-type">Çalışılacak Anonsu Seçin:</label>
-                    <select id="announcement-type">
-                        </select>
-                </div>
-
-                <div class="announcement-display">
-                    <div class="display-header">
-                        <h3 id="ann-title">Anons Yükleniyor...</h3>
-                        <button id="chime-btn" class="chime-btn" title="Kabin Zilini Çal">
-                            <i class="fa-solid fa-bell"></i> Ding-Dong
-                        </button>
-                    </div>
-                    
-                    <div class="teleprompter">
-                        <p id="ann-text">Metin yükleniyor...</p>
-                    </div>
-                    <p class="ann-hint"><em>İpucu: Kırmızı eğik çizgilerde ( / ) yarım saniye es verin. Vurguları net yapın. Başlamadan önce zili çalmayı unutmayın!</em></p>
-                </div>
-
-                <div class="simulator-controls">
-                    <button id="listen-native-btn" class="sim-btn native-btn">
-                        <i class="fa-solid fa-headphones"></i> Örnek Anonsu Dinle
-                    </button>
-                    
-                    <button id="record-btn" class="sim-btn record-btn">
-                        <i class="fa-solid fa-microphone"></i> <span id="record-text">Kaydet (Sıra Sende)</span>
-                    </button>
-                </div>
-
-                <div id="playback-container" class="playback-container hidden">
-                    <h4>Kendi Telaffuzunu Dinle:</h4>
-                    <audio id="user-audio" controls></audio>
-                </div>
-            </div>
-        </section>
-
-        <section id="interview" class="tab-content">
-            <h2>Mülakat Simülasyonu 👔</h2>
-            <p>Kameranı aç, süreni yönet ve STAR tekniğiyle profesyonel cevaplar ver.</p>
-
-            <div class="interview-container">
-                <div class="question-selector">
-                    <label for="interview-q-select">Çalışılacak Soruyu Seçin:</label>
-                    <select id="interview-q-select">
-                        </select>
-                </div>
-
-                <div class="interview-card">
-                    <div class="question-header">
-                        <h3 id="int-q-text">Soru Yükleniyor...</h3>
-                        <button id="listen-q-btn" class="icon-btn" title="Soruyu Dinle (Mülakatçı)">
-                            <i class="fa-solid fa-user-tie"></i> Soruyu Dinle
-                        </button>
-                    </div>
-
-                    <div class="practice-area">
-                        <div class="practice-header">
-                            <h4>Senin Cevabın (Video Kaydı):</h4>
-                            <div id="int-timer" class="timer-badge hidden">
-                                <i class="fa-solid fa-clock"></i> <span id="time-display">02:00</span>
-                            </div>
-                        </div>
-                        
-                        <div class="video-container">
-                            <video id="int-live-video" class="video-feed hidden" autoplay muted playsinline></video>
-                            <video id="int-user-video" class="video-feed hidden" controls playsinline></video>
-                        </div>
-
-                        <div class="record-controls">
-                            <button id="int-record-btn" class="sim-btn record-btn">
-                                <i class="fa-solid fa-video"></i> <span id="int-record-text">Kamera ile Cevapla</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="sample-answer-area">
-                        <button id="show-answer-btn" class="sim-btn native-btn">
-                            <i class="fa-solid fa-lightbulb"></i> Örnek Cevabı ve Analizi Gör
-                        </button>
-                        
-                        <div id="sample-answer-box" class="sample-box hidden">
-                            <div class="answer-navigation">
-                                <button id="prev-answer-btn" class="icon-btn-small" title="Önceki Alternatif"><i class="fa-solid fa-chevron-left"></i></button>
-                                <span id="answer-counter" class="answer-badge">Alternatif 1 / 2</span>
-                                <button id="next-answer-btn" class="icon-btn-small" title="Sonraki Alternatif"><i class="fa-solid fa-chevron-right"></i></button>
+                            <p id="eval-feedback" class="eval-feedback">...</p>
+                            
+                            <div class="better-version-box">
+                                <strong>Kusursuz Versiyon:</strong>
+                                <p id="eval-better-version">...</p>
                             </div>
                             
-                            <button id="ai-generate-btn" class="ai-btn">
-                                <i class="fa-solid fa-wand-magic-sparkles"></i> Yapay Zeka ile Yeni Cevap Üret
-                            </button>
-                            <p id="ai-loading" class="ai-loading-text hidden"><i class="fa-solid fa-spinner fa-spin"></i> Yapay Zeka düşünüyor... Lütfen bekle.</p>
-
-                            <p id="int-a-en" class="en-example">"Örnek İngilizce Cevap..."</p>
-                            <p id="int-a-tr" class="tr-example">"Örnek Türkçe Çeviri..."</p>
-                            <button id="listen-a-btn" class="icon-btn mt-1" title="Örnek Cevabı Dinle">
-                                <i class="fa-solid fa-volume-high"></i> Profesyonel Telaffuzu Dinle
-                            </button>
-                            
-                            <div class="star-analysis mt-2">
-                                <h5>🌟 Neden Başarılı? (STAR Tekniği)</h5>
-                                <ul id="star-list">
-                                    </ul>
-                            </div>
+                            <button id="next-scenario-btn" class="action-btn w-100 mt-1"><i class="fa-solid fa-forward"></i> Sıradaki Yolcuya Geç</button>
                         </div>
                     </div>
                 </div>
+
             </div>
-        </section>
+        </div>
+
+        <div id="podcast-module" class="tab-content">
+            <h2 class="section-title"><i class="fa-solid fa-headphones-simple"></i> Dinleme Pratiği</h2>
+            <p class="section-desc">Kendi İngilizce seviyeni seç ve havacılık podcast'lerini dinle.</p>
+
+            <div class="level-selectors">
+                <button class="level-btn" data-level="A2-B1">A2 - B1 (Temel Orta)</button>
+                <button class="level-btn" data-level="B1-B2">B1 - B2 (Orta Üstü)</button>
+                <button class="level-btn" data-level="B2-C1">B2 - C1 (İleri Havacılık)</button>
+            </div>
+
+            <div id="podcast-gallery" class="podcast-gallery hidden">
+                </div>
+
+            <div id="podcast-player-container" class="theory-board hidden">
+                <div class="theory-header">
+                    <h3 id="podcast-player-title">Podcast Başlığı</h3>
+                    <button id="close-podcast-btn" class="icon-btn-small" title="Kapat"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                
+                <div class="theory-video-container">
+                    <iframe id="podcast-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <p id="podcast-player-desc" class="theory-desc">Açıklama...</p>
+            </div>
+        </div>
 
     </main>
 
-    <script src="app.js"></script>
+    <nav class="bottom-nav">
+        <button class="nav-btn active" data-target="words-module"><i class="fa-solid fa-book"></i> Kelimeler</button>
+        <button class="nav-btn" data-target="announce-module"><i class="fa-solid fa-microphone"></i> Anons</button>
+        <button class="nav-btn" data-target="interview-module"><i class="fa-solid fa-user-tie"></i> Mülakat</button>
+        <button class="nav-btn" data-target="grammar-module"><i class="fa-solid fa-pen-to-square"></i> Gramer</button>
+        <button class="nav-btn" data-target="podcast-module"><i class="fa-solid fa-headphones"></i> Podcast</button>
+    </nav>
+
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
@@ -335,5 +334,7 @@
             });
         }
     </script>
+
+    <script src="app.js"></script>
 </body>
 </html>
