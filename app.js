@@ -1118,9 +1118,9 @@ if(backToSetupBtn) {
 
 // Seviyelere Özel Canlı Arama Terimleri (Keywords)
 const searchQueries = {
-    "A2-B1": "basic english conversation flight attendant cabin crew",
-    "B1-B2": "aviation english cabin crew training situations",
-    "B2-C1": "aviation english ATC communications emergency real"
+    "A2-B1": "English listening practice podcast A2 B1 conversation",
+    "B1-B2": "English listening practice podcast intermediate B1 B2",
+    "B2-C1": "English listening practice podcast advanced B2 C1"
 };
 
 // DOM Elementleri
