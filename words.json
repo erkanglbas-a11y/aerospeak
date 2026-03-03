@@ -1,0 +1,352 @@
+[
+    {
+        "word": "Overhead bin",
+        "meaning": "Baş üstü dolabı",
+        "exampleEn": "Please be careful when opening the overhead bins.",
+        "exampleTr": "Lütfen baş üstü dolaplarını açarken dikkatli olun.",
+        "category": "Kabin İçi"
+    },
+    {
+        "word": "Fasten",
+        "meaning": "Bağlamak / Sabitlemek",
+        "exampleEn": "Make sure your seatbelt is securely fastened.",
+        "exampleTr": "Emniyet kemerinizin sıkıca bağlandığından emin olun.",
+        "category": "Güvenlik"
+    },
+    {
+        "word": "Seatbelt",
+        "meaning": "Emniyet kemeri",
+        "exampleEn": "Please fasten your seatbelt.",
+        "exampleTr": "Lütfen emniyet kemerinizi bağlayın.",
+        "category": "Güvenlik"
+    },
+    {
+        "word": "Brace",
+        "meaning": "Çarpma pozisyonu almak",
+        "exampleEn": "Cabin crew, brace for impact!",
+        "exampleTr": "Kabin ekibi, çarpma için pozisyon alın!",
+        "category": "Acil Durum"
+    },
+    {
+        "word": "Lavatory",
+        "meaning": "Uçak tuvaleti",
+        "exampleEn": "The lavatory is located at the rear of the aircraft.",
+        "exampleTr": "Tuvalet uçağın arka kısmında yer almaktadır.",
+        "category": "Kabin İçi"
+    },
+    {
+        "word": "Aisle",
+        "meaning": "Koridor",
+        "exampleEn": "Please keep the aisle clear during boarding.",
+        "exampleTr": "Lütfen uçağa biniş sırasında koridoru boş tutun.",
+        "category": "Kabin İçi"
+    },
+    {
+        "word": "Window seat",
+        "meaning": "Pencere kenarı koltuk",
+        "exampleEn": "I prefer a window seat.",
+        "exampleTr": "Pencere kenarı koltuğu tercih ederim.",
+        "category": "Kabin İçi"
+    },
+    {
+        "word": "Middle seat",
+        "meaning": "Orta koltuk",
+        "exampleEn": "The middle seat is empty.",
+        "exampleTr": "Orta koltuk boş.",
+        "category": "Kabin İçi"
+    },
+    {
+        "word": "Turbulence",
+        "meaning": "Türbülans / Hava Boşluğu",
+        "exampleEn": "We are experiencing some light turbulence.",
+        "exampleTr": "Hafif bir türbülans yaşıyoruz.",
+        "category": "Uçuş Aşamaları"
+    },
+    {
+        "word": "Life vest",
+        "meaning": "Can yeleği",
+        "exampleEn": "Your life vest is located under your seat.",
+        "exampleTr": "Can yeleğiniz koltuğunuzun altındadır.",
+        "category": "Acil Durum"
+    },
+    {
+        "word": "Emergency exit",
+        "meaning": "Acil çıkış",
+        "exampleEn": "Locate the nearest emergency exit.",
+        "exampleTr": "En yakın acil çıkışı bulun.",
+        "category": "Güvenlik"
+    },
+    {
+        "word": "Oxygen mask",
+        "meaning": "Oksijen maskesi",
+        "exampleEn": "Oxygen masks will deploy automatically.",
+        "exampleTr": "Oksijen maskeleri otomatik açılacaktır.",
+        "category": "Acil Durum"
+    },
+    {
+        "word": "Galley",
+        "meaning": "Uçak mutfağı",
+        "exampleEn": "The crew is preparing the meals in the galley.",
+        "exampleTr": "Ekip yemekleri mutfakta hazırlıyor.",
+        "category": "Kabin İçi"
+    },
+    {
+        "word": "Ditching",
+        "meaning": "Suya zorunlu iniş",
+        "exampleEn": "The safety card shows the procedures for ditching.",
+        "exampleTr": "Güvenlik kartı suya zorunlu iniş prosedürlerini gösterir.",
+        "category": "Acil Durum"
+    },
+    {
+        "word": "Accommodate",
+        "meaning": "İhtiyacını karşılamak",
+        "exampleEn": "We will do our best to accommodate your request.",
+        "exampleTr": "Talebinizi karşılamak için elimizden geleni yapacağız.",
+        "category": "Hizmet"
+    },
+    {
+        "word": "Altitude",
+        "meaning": "İrtifa",
+        "exampleEn": "The aircraft reached its cruising altitude.",
+        "exampleTr": "Uçak seyir irtifasına ulaştı.",
+        "category": "Uçuş Operasyonları"
+    },
+    {
+        "word": "Runway",
+        "meaning": "Pist",
+        "exampleEn": "The runway is clear for landing.",
+        "exampleTr": "Pist iniş için hazır.",
+        "category": "Havalimanı"
+    },
+    {
+        "word": "Takeoff",
+        "meaning": "Kalkış",
+        "exampleEn": "The takeoff was smooth.",
+        "exampleTr": "Kalkış sorunsuz gerçekleşti.",
+        "category": "Uçuş Aşamaları"
+    },
+    {
+        "word": "Landing",
+        "meaning": "İniş",
+        "exampleEn": "The landing was safe.",
+        "exampleTr": "İniş güvenliydi.",
+        "category": "Uçuş Aşamaları"
+    },
+    {
+        "word": "Cockpit",
+        "meaning": "Kokpit",
+        "exampleEn": "Only authorized crew may enter the cockpit.",
+        "exampleTr": "Sadece yetkili ekip kokpite girebilir.",
+        "category": "Uçuş Ekibi"
+    },
+    {
+        "word": "Cabin crew",
+        "meaning": "Kabin ekibi",
+        "exampleEn": "The cabin crew completed the safety check.",
+        "exampleTr": "Kabin ekibi güvenlik kontrolünü tamamladı.",
+        "category": "Uçuş Ekibi"
+    },
+    {
+        "word": "Pilot",
+        "meaning": "Pilot",
+        "exampleEn": "The pilot announced the weather conditions.",
+        "exampleTr": "Pilot hava durumunu anons etti.",
+        "category": "Uçuş Ekibi"
+    },
+    {
+        "word": "Co-pilot",
+        "meaning": "İkinci pilot",
+        "exampleEn": "The co-pilot assisted during landing.",
+        "exampleTr": "İkinci pilot iniş sırasında yardımcı oldu.",
+        "category": "Uçuş Ekibi"
+    },
+    {
+        "word": "Boarding",
+        "meaning": "Uçağa biniş",
+        "exampleEn": "Boarding has started.",
+        "exampleTr": "Uçağa biniş başladı.",
+        "category": "Havalimanı"
+    },
+    {
+        "word": "Gate",
+        "meaning": "Kapı",
+        "exampleEn": "The gate number has changed.",
+        "exampleTr": "Kapı numarası değişti.",
+        "category": "Havalimanı"
+    },
+    {
+        "word": "Purser",
+        "meaning": "Kabin Amiri",
+        "exampleEn": "The purser is responsible for all cabin operations.",
+        "exampleTr": "Kabin amiri tüm kabin operasyonlarından sorumludur.",
+        "category": "Uçuş Ekibi"
+    },
+    {
+        "word": "Briefing",
+        "meaning": "Uçuş öncesi toplantı",
+        "exampleEn": "We will have a short briefing before the passengers board.",
+        "exampleTr": "Yolcular uçağa binmeden önce kısa bir toplantı yapacağız.",
+        "category": "Uçuş Operasyonları"
+    },
+    {
+        "word": "Jumpseat",
+        "meaning": "Kabin memuru koltuğu",
+        "exampleEn": "Cabin crew, please take your jumpseats for landing.",
+        "exampleTr": "Kabin ekibi, lütfen iniş için koltuklarınıza geçin.",
+        "category": "Kabin İçi"
+    },
+    {
+        "word": "Arm doors",
+        "meaning": "Kapıları acil duruma hazır hale getirmek",
+        "exampleEn": "Cabin crew, arm doors and crosscheck.",
+        "exampleTr": "Kabin ekibi, kapıları hazır hale getirin ve karşılıklı kontrol edin.",
+        "category": "Güvenlik"
+    },
+    {
+        "word": "Crosscheck",
+        "meaning": "Karşılıklı kontrol",
+        "exampleEn": "Please perform a crosscheck on the opposite door.",
+        "exampleTr": "Lütfen karşı kapıda karşılıklı kontrol yapın.",
+        "category": "Güvenlik"
+    },
+    {
+        "word": "Sterile Cockpit",
+        "meaning": "Steril Kokpit (Sessizlik Kuralı)",
+        "exampleEn": "We are under sterile cockpit rules below 10,000 feet.",
+        "exampleTr": "10.000 fitin altında steril kokpit kuralları geçerlidir.",
+        "category": "Uçuş Operasyonları"
+    },
+    {
+        "word": "Unruly passenger",
+        "meaning": "Kural tanımaz / Sorun çıkaran yolcu",
+        "exampleEn": "We have an unruly passenger in row 12.",
+        "exampleTr": "12. sırada sorun çıkaran bir yolcumuz var.",
+        "category": "Kriz Yönetimi"
+    },
+    {
+        "word": "Decompression",
+        "meaning": "Kabin basıncı düşmesi",
+        "exampleEn": "In case of rapid decompression, oxygen masks will drop.",
+        "exampleTr": "Hızlı basınç düşüşü durumunda oksijen maskeleri düşecektir.",
+        "category": "Acil Durum"
+    },
+    {
+        "word": "Hypoxia",
+        "meaning": "Oksijen yetersizliği",
+        "exampleEn": "Hypoxia can occur if the cabin loses pressure.",
+        "exampleTr": "Kabin basıncı düşerse oksijen yetersizliği meydana gelebilir.",
+        "category": "Tıbbi"
+    },
+    {
+        "word": "Evacuation",
+        "meaning": "Tahliye",
+        "exampleEn": "Initiate evacuation procedures immediately.",
+        "exampleTr": "Tahliye prosedürlerini derhal başlatın.",
+        "category": "Acil Durum"
+    },
+    {
+        "word": "First Aid Kit",
+        "meaning": "İlk yardım çantası",
+        "exampleEn": "Bring the first aid kit to the front galley.",
+        "exampleTr": "İlk yardım çantasını ön mutfağa getirin.",
+        "category": "Tıbbi"
+    },
+    {
+        "word": "Defibrillator (AED)",
+        "meaning": "Şok cihazı",
+        "exampleEn": "The AED is used in case of cardiac arrest.",
+        "exampleTr": "Şok cihazı kalp durması durumunda kullanılır.",
+        "category": "Tıbbi"
+    },
+    {
+        "word": "Fire extinguisher",
+        "meaning": "Yangın söndürücü",
+        "exampleEn": "Check the pressure gauge on the fire extinguisher.",
+        "exampleTr": "Yangın söndürücünün basınç göstergesini kontrol edin.",
+        "category": "Güvenlik"
+    },
+    {
+        "word": "Connecting flight",
+        "meaning": "Aktarmalı uçuş",
+        "exampleEn": "Do you have a connecting flight from London?",
+        "exampleTr": "Londra'dan aktarmalı uçuşunuz var mı?",
+        "category": "Havalimanı"
+    },
+    {
+        "word": "Layover",
+        "meaning": "Bekleme süresi / Aktarma molası",
+        "exampleEn": "We have a two-hour layover in Dubai.",
+        "exampleTr": "Dubai'de iki saatlik bekleme süremiz var.",
+        "category": "Uçuş Operasyonları"
+    },
+    {
+        "word": "ETA (Estimated Time of Arrival)",
+        "meaning": "Tahmini varış zamanı",
+        "exampleEn": "Our ETA in Paris is 14:30 local time.",
+        "exampleTr": "Paris'e tahmini varış zamanımız yerel saatle 14:30'dur.",
+        "category": "Uçuş Aşamaları"
+    },
+    {
+        "word": "Clear Air Turbulence",
+        "meaning": "Açık hava türbülansı (Bulutsuz)",
+        "exampleEn": "Clear air turbulence cannot be detected by radar.",
+        "exampleTr": "Açık hava türbülansı radarla tespit edilemez.",
+        "category": "Uçuş Aşamaları"
+    },
+    {
+        "word": "Stow",
+        "meaning": "Kaldırmak / Yerleştirmek",
+        "exampleEn": "Please stow your tray tables for landing.",
+        "exampleTr": "Lütfen iniş için tepsilerinizi kaldırın.",
+        "category": "Kabin İçi"
+    },
+    {
+        "word": "Call bell",
+        "meaning": "Çağrı zili",
+        "exampleEn": "A passenger pressed the call bell in row 8.",
+        "exampleTr": "8. sıradaki bir yolcu çağrı ziline bastı.",
+        "category": "Hizmet"
+    },
+    {
+        "word": "Interphone",
+        "meaning": "Dahili telefon",
+        "exampleEn": "Use the interphone to contact the flight deck.",
+        "exampleTr": "Kokpit ile iletişim kurmak için dahili telefonu kullanın.",
+        "category": "Uçuş Ekibi"
+    },
+    {
+        "word": "PA System",
+        "meaning": "Anons sistemi (Public Address)",
+        "exampleEn": "The captain is making an announcement over the PA system.",
+        "exampleTr": "Kaptan anons sistemi üzerinden bir duyuru yapıyor.",
+        "category": "Uçuş Ekibi"
+    },
+    {
+        "word": "Safety demonstration",
+        "meaning": "Güvenlik gösterisi",
+        "exampleEn": "Please pay attention to the safety demonstration.",
+        "exampleTr": "Lütfen güvenlik gösterisine dikkat edin.",
+        "category": "Güvenlik"
+    },
+    {
+        "word": "Carousel",
+        "meaning": "Bagaj bandı",
+        "exampleEn": "You can collect your luggage at carousel number 4.",
+        "exampleTr": "Bagajlarınızı 4 numaralı banttan alabilirsiniz.",
+        "category": "Havalimanı"
+    },
+    {
+        "word": "Duty-free",
+        "meaning": "Gümrüksüz satış",
+        "exampleEn": "We will be offering duty-free items shortly.",
+        "exampleTr": "Kısa süre içinde gümrüksüz ürün satışı sunacağız.",
+        "category": "Hizmet"
+    },
+    {
+        "word": "Mayday",
+        "meaning": "Uluslararası acil durum çağrısı",
+        "exampleEn": "The pilot broadcasted a Mayday signal.",
+        "exampleTr": "Pilot acil durum (Mayday) sinyali yayınladı.",
+        "category": "Acil Durum"
+    }
+]
